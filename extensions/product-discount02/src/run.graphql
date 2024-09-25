@@ -1,0 +1,21 @@
+query RunInput {
+  cart{
+    lines{
+      quantity
+      merchandise{
+         __typename
+        ... on ProductVariant{
+          id
+          metafield(key: "quantity_break", namespace: "custom") {
+              value
+          }
+        }
+      }
+    }
+    cost{
+      totalAmount{
+        amount
+      }
+    }
+  }
+}
